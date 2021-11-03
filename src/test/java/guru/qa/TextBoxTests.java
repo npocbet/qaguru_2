@@ -47,7 +47,9 @@ public class TextBoxTests {
         $("[for=hobbies-checkbox-2]").click();
         $("[for=hobbies-checkbox-3]").click();
         // file upload
-        $("#uploadPicture").uploadFile(new File("src/test/resources/image.jpg"));
+        // $("#uploadPicture").uploadFile(new File("src/test/resources/image.jpg"));
+        // another way to upload the file (нужно указывать только имя файла относительно resources)
+        $("#uploadPicture").uploadFromClasspath("image.jpg");
         //address
         $("#currentAddress").setValue("The Earth");
         //state
@@ -61,15 +63,19 @@ public class TextBoxTests {
 
         // assertions
 
-        $(".table > tbody> :nth-child(1) > :nth-child(2)").shouldHave(text("Svjato Kravts"));
-        $(".table > tbody> :nth-child(2) > :nth-child(2)").shouldHave(text("aaa@aa.aa"));
-        $(".table > tbody> :nth-child(3) > :nth-child(2)").shouldHave(text("Male"));
-        $(".table > tbody> :nth-child(4) > :nth-child(2)").shouldHave(text("8999099999"));
-        $(".table > tbody> :nth-child(5) > :nth-child(2)").shouldHave(text("13 September,1988"));
-        $(".table > tbody> :nth-child(6) > :nth-child(2)").shouldHave(text("English, Computer Science"));
-        $(".table > tbody> :nth-child(7) > :nth-child(2)").shouldHave(text("Sports, Reading, Music"));
-        $(".table > tbody> :nth-child(8) > :nth-child(2)").shouldHave(text("image.jpg"));
-        $(".table > tbody> :nth-child(9) > :nth-child(2)").shouldHave(text("The Earth"));
-        $(".table > tbody> :nth-child(10) > :nth-child(2)").shouldHave(text("Rajasthan Jaipur"));
+//        $(".table > tbody> :nth-child(1) > :nth-child(2)").shouldHave(text("Svjato Kravts"));
+//        $(".table > tbody> :nth-child(2) > :nth-child(2)").shouldHave(text("aaa@aa.aa"));
+//        $(".table > tbody> :nth-child(3) > :nth-child(2)").shouldHave(text("Male"));
+//        $(".table > tbody> :nth-child(4) > :nth-child(2)").shouldHave(text("8999099999"));
+//        $(".table > tbody> :nth-child(5) > :nth-child(2)").shouldHave(text("13 September,1988"));
+//        $(".table > tbody> :nth-child(6) > :nth-child(2)").shouldHave(text("English, Computer Science"));
+//        $(".table > tbody> :nth-child(7) > :nth-child(2)").shouldHave(text("Sports, Reading, Music"));
+//        $(".table > tbody> :nth-child(8) > :nth-child(2)").shouldHave(text("image.jpg"));
+//        $(".table > tbody> :nth-child(9) > :nth-child(2)").shouldHave(text("The Earth"));
+//        $(".table > tbody> :nth-child(10) > :nth-child(2)").shouldHave(text("Rajasthan Jaipur"));
+        // более простой путь
+        $(".table").shouldHave(text("Svjato Kravts"), text("aaa@aa.aa"), text("Male"), text("8999099999"),
+                text("13 September,1988"), text("English, Computer Science"), text("Sports, Reading, Music"),
+                text("image.jpg"), text("The Earth"), text("Rajasthan Jaipur"));
     }
 }
