@@ -1,22 +1,22 @@
-package guru.qa;
+package guru.qa.tests;
 
-import com.codeborne.selenide.Condition;
+// import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
+// import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TextBoxTests {
+public class TextBoxTests_hw_2 {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.startMaximized = true;
-    }
+//    @BeforeAll
+//    static void beforeAll() {
+//        Configuration.startMaximized = true;
+//    }
 
     @Test
     void fillFormTest(){
