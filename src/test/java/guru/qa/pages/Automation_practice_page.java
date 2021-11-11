@@ -1,8 +1,9 @@
 package guru.qa.pages;
 
-//import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import guru.qa.pages.components.CalendarComponent;
+
+import java.util.Objects;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -17,7 +18,9 @@ public class Automation_practice_page {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            genderRadio = $("[for='gender-radio-1']"),
+            genderRadioM = $("[for='gender-radio-1']"),
+            genderRadioF = $("[for='gender-radio-2']"),
+            genderRadioO = $("[for='gender-radio-3']"),
             subjects = $(".subjects-auto-complete__value-container"),
             subjectsInput = $("#subjectsInput"),
             phoneNumberInput = $("#userNumber"),
@@ -58,11 +61,61 @@ public class Automation_practice_page {
     }
 
     public void pickGender(String value) {
-        genderRadio.click();
+        if (Objects.equals(value, "Male")) {
+            genderRadioM.click();
+        }
+        if (Objects.equals(value, "Female")) {
+            genderRadioF.click();
+        }
+        if (Objects.equals(value, "Other")) {
+            genderRadioO.click();
+        }
     }
 
-    public void typePhoneNumber(String value) { phoneNumberInput.setValue(value); }
+    public void typePhoneNumber(String value) {
+        phoneNumberInput.setValue(value);
+    }
 
+    public void pickSubjects(String[] value) {
+        subjects.click();
+
+        for (String s : value) {
+            subjectsInput.setValue(s).pressEnter();
+        }
+    }
+
+    public void pickHobbies(String[] value) {
+        for (String s : value) {
+            if (Objects.equals(s, "Sports")) {
+                hobbies_checkbox_1.click();
+            }
+            if (Objects.equals(s, "Reading")) {
+                hobbies_checkbox_2.click();
+            }
+            if (Objects.equals(s, "Music")) {
+                hobbies_checkbox_3.click();
+            }
+        }
+    }
+
+    public void uploadPicture() {
+        uploadPicture.uploadFromClasspath("image.jpg");
+    }
+
+    public void enterAdress(String value){
+        currentAddress.setValue(value);
+    }
+
+    public void setStateAndCity(String stateValue, String cityValue){
+        state.click();
+        state_input.setValue(stateValue).pressEnter();
+        city.click();
+        city_input.setValue(cityValue).pressEnter();
+    }
+
+    public void clickSubmit(){
+        submit_button.click();
+    }
 
     public Automation_practice_page checkResultsValue(String key, String value) {
         resultsTable.$(byText(key))
