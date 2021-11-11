@@ -1,6 +1,6 @@
 package guru.qa.pages;
 
-import com.codeborne.selenide.Condition;
+//import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import guru.qa.pages.components.CalendarComponent;
 
@@ -16,6 +16,21 @@ public class Automation_practice_page {
             formTitle = $(".practice-form-wrapper"),
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
+            userEmailInput = $("#userEmail"),
+            genderRadio = $("[for='gender-radio-1']"),
+            subjects = $(".subjects-auto-complete__value-container"),
+            subjectsInput = $("#subjectsInput"),
+            phoneNumberInput = $("#userNumber"),
+            hobbies_checkbox_1 = $("[for=hobbies-checkbox-1]"),
+            hobbies_checkbox_2 = $("[for=hobbies-checkbox-2]"),
+            hobbies_checkbox_3 = $("[for=hobbies-checkbox-3]"),
+            uploadPicture = $("#uploadPicture"),
+            currentAddress = $("#currentAddress"),
+            state = $("#state"),
+            state_input = $("#react-select-3-input"),
+            city = $("#city"),
+            city_input = $("#react-select-4-input"),
+            submit_button = $("#submit"),
             resultsTable = $(".table-responsive");
     public CalendarComponent calendar = new CalendarComponent();
 
@@ -37,6 +52,17 @@ public class Automation_practice_page {
     public void typeLastName(String value) {
         lastNameInput.setValue(value);
     }
+
+    public void typeEmail(String value) {
+        userEmailInput.setValue(value);
+    }
+
+    public void pickGender(String value) {
+        genderRadio.click();
+    }
+
+    public void typePhoneNumber(String value) { phoneNumberInput.setValue(value); }
+
 
     public Automation_practice_page checkResultsValue(String key, String value) {
         resultsTable.$(byText(key))
