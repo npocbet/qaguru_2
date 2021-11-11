@@ -62,11 +62,10 @@ public class TextBoxTests_hw_5  extends TestBase {
         automationPracticePage.enterAdress(streetAddress);
         //state & city
         automationPracticePage.setStateAndCity("Rajasthan", "Jaipur");
-        sleep(3000);
+
         automationPracticePage.clickSubmit();
 
         // assertions
-        sleep(5000);
         automationPracticePage
                 .checkResultsValue("Student Name", firstName + " " + lastName)
                 .checkResultsValue("Student Email", email)
