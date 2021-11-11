@@ -1,26 +1,55 @@
 package guru.qa.tests;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Random;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTests_hw_5  extends TestBase {
 
+    Faker faker = new Faker(new Locale("ru"));
+    Faker faker2 = new Faker();
+//    Faker faker = new Faker();
+
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String email = faker2.internet().emailAddress();
+    Random rand = new Random();
+    String[] genders = new String[]{"Male", "Female", "Other"};
+    int randomGender = rand.nextInt(3);
+    String phone_number = faker.phoneNumber().subscriberNumber(10);
+    String streetAddress = faker.address().streetAddress();
+    String[] months = new String[]{"January", "February", "March", "April", "May", "June", "July", "August",
+                                    "September", "October", "November", "December"};
+    Date birthday = faker.date().birthday();
+    int year = rand.nextInt(17);
+    int START_YEAR = 2004;
+
     @Test
     void fillFormTest(){
         // first name last name
         automationPracticePage.openPage()
-                .typeFirstName("Svjato")
-                .typeLastName("Kravts");
+                .typeFirstName(firstName)
+                .typeLastName(lastName);
 
         //e-mail
-        automationPracticePage.typeEmail("aaa@aa.aa");
+        automationPracticePage.typeEmail(email);
         //gender
-        automationPracticePage.pickGender("Male");
+        automationPracticePage.pickGender(genders[randomGender]);
         // phone number
-        automationPracticePage.typePhoneNumber("89990999999");
+        automationPracticePage.typePhoneNumber(phone_number);
         //birth date
-        automationPracticePage.calendar.setDate("13", "September", "1988");
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(birthday);
+
+        automationPracticePage.calendar.setDate(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)),
+                months[cal.get(Calendar.MONTH)], String.valueOf(START_YEAR + year));
         //some subjects
        $("#subjectsInput").scrollTo();
         automationPracticePage.pickSubjects(new String[]{"English", "Computer Science"});
@@ -30,21 +59,25 @@ public class TextBoxTests_hw_5  extends TestBase {
         // file upload
         automationPracticePage.uploadPicture();
         //address
-        automationPracticePage.enterAdress("The Earth");
+        automationPracticePage.enterAdress(streetAddress);
         //state & city
         automationPracticePage.setStateAndCity("Rajasthan", "Jaipur");
+        sleep(3000);
         automationPracticePage.clickSubmit();
+
         // assertions
+        sleep(5000);
         automationPracticePage
-                .checkResultsValue("Student Name", "Svjato Kravts")
-                .checkResultsValue("Student Email", "aaa@aa.aa")
-                .checkResultsValue("Gender", "Male")
-                .checkResultsValue("Mobile", "8999099999")
-                .checkResultsValue("Date of Birth", "13 September,1988")
+                .checkResultsValue("Student Name", firstName + " " + lastName)
+                .checkResultsValue("Student Email", email)
+                .checkResultsValue("Gender", genders[randomGender])
+                .checkResultsValue("Mobile", phone_number)
+                .checkResultsValue("Date of Birth", cal.get(Calendar.DAY_OF_MONTH) + " " +
+                        months[cal.get(Calendar.MONTH)] + "," + (START_YEAR + year))
                 .checkResultsValue("Subjects", "English, Computer Science")
                 .checkResultsValue("Hobbies", "Sports, Reading, Music")
                 .checkResultsValue("Picture", "image.jpg")
-                .checkResultsValue("Address", "The Earth")
+                .checkResultsValue("Address", streetAddress)
                 .checkResultsValue("State and City", "Rajasthan Jaipur")
         ;
     }
