@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class Automation_practice_page {
+public class AutomationPracticePage  {
     // locators & elements
     private final String FORM_TITLE = "Student Registration Form";
     private SelenideElement
@@ -38,26 +38,26 @@ public class Automation_practice_page {
     public CalendarComponent calendar = new CalendarComponent();
 
     // actions
-    public Automation_practice_page openPage() {
+    public AutomationPracticePage openPage() {
         open("https://demoqa.com/automation-practice-form");
         formTitle.shouldHave(text(FORM_TITLE));
 
         return this;
     }
 
-    public Automation_practice_page typeFirstName(String value) {
-        firstNameInput.setValue(value);
+    public AutomationPracticePage  typeFirstName(String firstName) {
+        firstNameInput.setValue(firstName);
 //        firstNameInput.shouldHave(Condition.value(value));
 
         return this;
     }
 
-    public void typeLastName(String value) {
-        lastNameInput.setValue(value);
+    public void typeLastName(String lastName) {
+        lastNameInput.setValue(lastName);
     }
 
-    public void typeEmail(String value) {
-        userEmailInput.setValue(value);
+    public void typeEmail(String eMail) {
+        userEmailInput.setValue(eMail);
     }
 
     public void pickGender(String value) {
@@ -72,8 +72,8 @@ public class Automation_practice_page {
         }
     }
 
-    public void typePhoneNumber(String value) {
-        phoneNumberInput.setValue(value);
+    public void typePhoneNumber(String number) {
+        phoneNumberInput.setValue(number);
     }
 
     public void pickSubjects(String[] value) {
@@ -98,12 +98,12 @@ public class Automation_practice_page {
         }
     }
 
-    public void uploadPicture() {
-        uploadPicture.uploadFromClasspath("image.jpg");
+    public void uploadPicture(String path) {
+        uploadPicture.uploadFromClasspath(path);
     }
 
-    public void enterAdress(String value){
-        currentAddress.setValue(value);
+    public void enterAdress(String address){
+        currentAddress.setValue(address);
     }
 
     public void setStateAndCity(String stateValue, String cityValue){
@@ -117,7 +117,7 @@ public class Automation_practice_page {
         submit_button.click();
     }
 
-    public Automation_practice_page checkResultsValue(String key, String value) {
+    public AutomationPracticePage  checkResultsValue(String key, String value) {
         resultsTable.$(byText(key))
                 .parent().shouldHave(text(value));
 
