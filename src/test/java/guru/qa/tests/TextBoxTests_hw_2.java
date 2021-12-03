@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TextBoxTests_hw_2 {
+public class TextBoxTests_hw_2 extends TestBase{
 
 //    @BeforeAll
 //    static void beforeAll() {

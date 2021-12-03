@@ -1,15 +1,16 @@
 package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
-import guru.qa.pages.AutomationPracticePage;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TestBase {
 
-    AutomationPracticePage automationPP = new AutomationPracticePage();
-//      selenide:5.25.0 only
-//    @BeforeAll
-//    static void beforeAll() {
-//        Configuration.startMaximized = true;
-//    }
+    @BeforeAll
+    static void setup(){
+        Configuration.remote = "https://user1:123@selenoid.autotests.cloud/wd/hub/";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+    }
 }
