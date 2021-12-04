@@ -82,8 +82,13 @@ public class TextBoxTests_hw_10 extends TestBase {
             $("#dateOfBirthInput").click();
             $(".react-datepicker__month-select").selectOption(months[cal.get(Calendar.MONTH)]);
             $(".react-datepicker__year-select").selectOption(String.valueOf(startYear + stepYear));
-            $(".react-datepicker__day--0" + cal.get(Calendar.DAY_OF_MONTH) +
-                    ":not(.react-datepicker__day--outside-month)").click();
+            if (cal.get(Calendar.DAY_OF_MONTH) < 10) {
+                $(".react-datepicker__day--00" + cal.get(Calendar.DAY_OF_MONTH) + ":not(.react-datepicker__day--outside-month)").click();
+            }
+            else {
+                $(".react-datepicker__day--0" + cal.get(Calendar.DAY_OF_MONTH) + ":not(.react-datepicker__day--outside-month)").click();
+            }
+
         });
 
         step("Вводим интересы", () -> {

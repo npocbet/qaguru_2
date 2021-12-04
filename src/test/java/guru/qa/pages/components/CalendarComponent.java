@@ -11,7 +11,11 @@ public class CalendarComponent {
         dateInput.click();
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
-        $(".react-datepicker__day--0" + day + ":not(.react-datepicker__day--outside-month)").click();
-
+        if (day.length() == 1) {
+            $(".react-datepicker__day--00" + day + ":not(.react-datepicker__day--outside-month)").click();
+        }
+        else {
+            $(".react-datepicker__day--0" + day + ":not(.react-datepicker__day--outside-month)").click();
+        }
     }
 }
