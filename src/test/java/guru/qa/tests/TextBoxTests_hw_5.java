@@ -74,7 +74,7 @@ public class TextBoxTests_hw_5  extends TestBase {
                         months[cal.get(Calendar.MONTH)] + "," + (startYear + stepYear))
                 .checkResultsValue("Subjects", "English, Computer Science")
                 .checkResultsValue("Hobbies", "Sports, Reading, Music")
-                .checkResultsValue("Picture", "img/image.png")
+                .checkResultsValue("Picture", "image.png")
                 .checkResultsValue("Address", streetAddress)
                 .checkResultsValue("State and City", "Rajasthan Jaipur")
         ;

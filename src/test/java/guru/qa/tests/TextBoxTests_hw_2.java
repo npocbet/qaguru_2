@@ -73,6 +73,6 @@ public class TextBoxTests_hw_2 extends TestBase{
         // более простой путь
         $(".table").shouldHave(text("Svjato Kravts"), text("aaa@aa.aa"), text("Male"), text("8999099999"),
                 text("13 September,1988"), text("English, Computer Science"), text("Sports, Reading, Music"),
-                text("img/image.png"), text("The Earth"), text("Rajasthan Jaipur"));
+                text("image.png"), text("The Earth"), text("Rajasthan Jaipur"));
     }
 }
