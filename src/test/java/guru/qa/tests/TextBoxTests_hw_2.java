@@ -1,5 +1,7 @@
 package guru.qa.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
 // import java.io.File;
@@ -17,6 +19,8 @@ public class TextBoxTests_hw_2 extends TestBase{
 
     @Test
     void fillFormTest(){
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
         open("https://demoqa.com/automation-practice-form");
         // first name
         $("[id=firstName]").setValue("Svjato");
