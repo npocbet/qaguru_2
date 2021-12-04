@@ -40,6 +40,7 @@ public class TextBoxTests_hw_2 extends TestBase{
         $(".react-datepicker__day--013").click();
 
         //some subjects
+        $("#subjectsInput").scrollTo();
         $(".subjects-auto-complete__value-container").click();
         $("#subjectsInput").setValue("English").pressEnter();
         $("#subjectsInput").setValue("Computer Science").pressEnter();
@@ -60,7 +61,7 @@ public class TextBoxTests_hw_2 extends TestBase{
         $("#city").click();
         $("#react-select-4-input").setValue("Jaipur").pressEnter();
 
-        $("#submit").scrollTo().click();
+        $("#submit").click();
 
         // assertions
 
