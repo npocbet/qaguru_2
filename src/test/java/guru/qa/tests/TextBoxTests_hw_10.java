@@ -135,7 +135,7 @@ public class TextBoxTests_hw_10 extends TestBase {
             $(".table-responsive").$(byText("Hobbies"))
                         .parent().shouldHave(text("Sports, Reading, Music"));
             $(".table-responsive").$(byText("Picture"))
-                        .parent().shouldHave(text("img/image.png"));
+                        .parent().shouldHave(text("image.png"));
             $(".table-responsive").$(byText("Address"))
                         .parent().shouldHave(text(streetAddress));
             $(".table-responsive").$(byText("State and City"))
