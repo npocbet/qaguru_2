@@ -60,7 +60,7 @@ public class TextBoxTests_hw_2 extends TestBase{
         $("#city").click();
         $("#react-select-4-input").setValue("Jaipur").pressEnter();
 
-        $("#submit").click();
+        $("#submit").scrollTo().click();
 
         // assertions
 
