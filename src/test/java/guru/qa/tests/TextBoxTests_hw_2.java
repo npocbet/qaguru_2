@@ -46,7 +46,7 @@ public class TextBoxTests_hw_2 extends TestBase{
         // file upload
         // $("#uploadPicture").uploadFile(new File("src/test/resources/image.jpg"));
         // another way to upload the file (нужно указывать только имя файла относительно resources)
-        $("#uploadPicture").uploadFromClasspath("image.jpg");
+        $("#uploadPicture").uploadFromClasspath("img/image.jpg");
         //address
         $("#currentAddress").setValue("The Earth");
         //state
@@ -73,6 +73,6 @@ public class TextBoxTests_hw_2 extends TestBase{
         // более простой путь
         $(".table").shouldHave(text("Svjato Kravts"), text("aaa@aa.aa"), text("Male"), text("8999099999"),
                 text("13 September,1988"), text("English, Computer Science"), text("Sports, Reading, Music"),
-                text("image.jpg"), text("The Earth"), text("Rajasthan Jaipur"));
+                text("img/image.jpg"), text("The Earth"), text("Rajasthan Jaipur"));
     }
 }

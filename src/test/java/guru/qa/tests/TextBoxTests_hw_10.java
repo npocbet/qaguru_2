@@ -100,7 +100,7 @@ public class TextBoxTests_hw_10 extends TestBase {
         });
 
         step("Загружаем картинку", () -> {
-            $("#uploadPicture").uploadFromClasspath("image.jpg");
+            $("#uploadPicture").uploadFromClasspath("img/image.jpg");
         });
 
         step("Вводим адрес", () -> {
@@ -135,7 +135,7 @@ public class TextBoxTests_hw_10 extends TestBase {
             $(".table-responsive").$(byText("Hobbies"))
                         .parent().shouldHave(text("Sports, Reading, Music"));
             $(".table-responsive").$(byText("Picture"))
-                        .parent().shouldHave(text("image.jpg"));
+                        .parent().shouldHave(text("img/image.jpg"));
             $(".table-responsive").$(byText("Address"))
                         .parent().shouldHave(text(streetAddress));
             $(".table-responsive").$(byText("State and City"))
