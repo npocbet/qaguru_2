@@ -99,7 +99,7 @@ public class TextBoxTests_hw_10 extends TestBase {
             $("[for=hobbies-checkbox-3]").click();
         });
 
-        step("Загружаем картинку", () -> {
+            step("Загружаем картинку", () -> {
             $("#uploadPicture").uploadFromClasspath("img/image.png");
         });
 
