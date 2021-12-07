@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TextBoxTests_hw_2 extends TestBase{
+public class TextBoxTests_hw_2 extends TestBase_hw_11 {
 
 //    @BeforeAll
 //    static void beforeAll() {

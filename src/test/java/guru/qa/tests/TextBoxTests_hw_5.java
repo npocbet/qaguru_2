@@ -10,7 +10,7 @@ import java.util.Random;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class TextBoxTests_hw_5  extends TestBase {
+public class TextBoxTests_hw_5  extends TestBase_hw_11 {
 
     private Faker faker = new Faker(new Locale("ru"));
     private Faker faker2 = new Faker();

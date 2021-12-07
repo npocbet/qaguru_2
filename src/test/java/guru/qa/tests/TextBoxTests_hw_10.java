@@ -3,6 +3,7 @@ package guru.qa.tests;
 import com.github.javafaker.Faker;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -13,7 +14,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class TextBoxTests_hw_10 extends TestBase {
+public class TextBoxTests_hw_10 extends TestBase_hw_11 {
 
     private Faker faker = new Faker(new Locale("ru"));
     private Faker faker2 = new Faker();
@@ -39,6 +40,7 @@ public class TextBoxTests_hw_10 extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Тест demoqa, заполнение анкеты. Лямбда шаги через step (name, () -> {})")
     @Link(name = "demoqa", url = "https://demoqa.com/automation-practice-form")
+    @Tag("properties")
     void fillFormTest(){
         // first name last name
         step("Открываем страницу формы", () -> {
